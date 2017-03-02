@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>list of events</h1>
+
+<table border="3px">
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Date_Time</th>
+<th>Location</th>
+
+</tr>
+<tr ng-repeat="e in events">
+<td>{{e.id}}</td>
+<td>{{e.name}}</td>
+<td>{{e.date_time}}</td>
+<td>{{e.location}}</td>
+</tr>
+</table>
+
+</body>
+</html>
