@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.collaboration.dao.ForumDAO;
+import com.niit.collaboration.model.Blog;
 import com.niit.collaboration.model.Forum;
 
 
@@ -62,11 +63,11 @@ public List<Forum> Forumlist() {
 	 return query.list();
 }
 
-/*public void update(Forum forum) {
-	sessionFactory.getCurrentSession().update(forum);
-	return;
-	
-}*/
+@Transactional
+public void update(Forum forum) 
+{
+	sessionFactory.getCurrentSession().update(forum);			
+}
 
  
 }

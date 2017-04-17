@@ -1,7 +1,9 @@
 package com.niit.collaboration.controller;
 import java.util.List;
 
-    import org.springframework.beans.factory.annotation.Autowired;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
     import org.springframework.http.HttpStatus;
 	import org.springframework.http.ResponseEntity;
 	import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,7 @@ import java.util.List;
 	import org.springframework.web.bind.annotation.RestController;
 
 import com.niit.collaboration.dao.JobDAO;
+import com.niit.collaboration.model.Date_Time;
 import com.niit.collaboration.model.Job;
 
     
@@ -23,9 +26,16 @@ import com.niit.collaboration.model.Job;
 		@Autowired
 		JobDAO jobDAO;
 		
+		@Autowired
+		HttpSession httpSession;
+		
 		@PostMapping("/addJob/")
 		public ResponseEntity<Job> createJob(@RequestBody Job job)
 		{
+			job.setUserID(httpSession.getAttribute("loggedInUserID").toString());
+			Date_Time dt = new Date_Time();
+			job.setDateTime(dt.getDateTime());
+			job.setStatus("P");
 			jobDAO.add(job);
 			job.setErrorCode("200");
 			job.setErrorMsg("Success....");
@@ -65,7 +75,7 @@ import com.niit.collaboration.model.Job;
 			return new ResponseEntity< List<Job>>(jobs,HttpStatus.OK);
 		}
 		
-		/*@GetMapping("/updateJob")
+		@PostMapping("/updateJob")
 		public ResponseEntity<Job> editJob(@RequestBody Job job)
 		{
 			jobDAO.update(job);
@@ -73,7 +83,7 @@ import com.niit.collaboration.model.Job;
 			job.setErrorMsg("Success....");
 			
 			return new ResponseEntity<Job> (job,HttpStatus.OK) ;
-		}*/
+		}
 		
 	}
 

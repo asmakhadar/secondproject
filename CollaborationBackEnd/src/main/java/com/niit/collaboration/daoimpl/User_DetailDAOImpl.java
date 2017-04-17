@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.collaboration.dao.User_DetailDAO;
+import com.niit.collaboration.model.Blog;
 import com.niit.collaboration.model.User_Detail;
 
 
@@ -71,10 +72,10 @@ public User_DetailDAOImpl(SessionFactory sessionFactory)
 		return ( User_Detail) query.uniqueResult();
 	}
 
-	public void update(User_Detail user_Detail) {
-		sessionFactory.getCurrentSession().update(user_Detail);
-		return;
-		
+	@Transactional
+	public void update(User_Detail user_Detail) 
+	{
+		sessionFactory.getCurrentSession().update(user_Detail);			
 	}
 	
 	}

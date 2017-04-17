@@ -10,17 +10,26 @@
 <h2 style="color:red">{{errorMessage}}
 </div>
 
-<h2>REGISTER HERE</h2>
+<h2><center>USER REGISTER FORM</center></h2>
+
 <form>
+<h3>Register As....</h3>
+
+ <lable class="radio-inline"> <input type="radio" name="role" value="Student" ng-model="user.role">Student </lable>
+ <lable class="radio-inline"> <input type="radio" name="role" value="Alumni" ng-model="user.role">Alumni </lable>
+ <lable class="radio-inline"> <input type="radio" name="role" value="Employee" ng-model="user.role">Employee</lable>
+  <br><br>
+  
 ID: <input type="text" ng-model="user.id" name="user"><br><br>
 NAME: <input type="text" ng-model="user.name" name="name"><br><br>
 ADDRESS: <input type="text" ng-model="user.address" name="address"><br><br>
 EMAIL: <input type="text" ng-model="user.email" name="email"><br><br>
 PASSWORD: <input type="password" ng-model="user.password" name="password"><br><br>
-DOB: <input type="text" ng-model="user.date_of_birth" name="date_of_birth"><br><br>
 MOBILE: <input type="text" ng-model="user.mobile_number" name="mobile_number"><br><br>
-<input type="button" ng-click="registerUser()" value="SIGN UP">
 
+<input type="button" ng-click="registerUser()" value="Register">
+
+<input type="reset" value="Reset Form">
 </form>
 
 

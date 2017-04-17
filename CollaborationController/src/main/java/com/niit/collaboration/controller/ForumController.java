@@ -2,7 +2,9 @@ package com.niit.collaboration.controller;
 
 	import java.util.List;
 
-	import org.springframework.beans.factory.annotation.Autowired;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 	    import org.springframework.http.HttpStatus;
 		import org.springframework.http.ResponseEntity;
 		import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +14,7 @@ package com.niit.collaboration.controller;
 		import org.springframework.web.bind.annotation.RestController;
 
 import com.niit.collaboration.dao.ForumDAO;
+import com.niit.collaboration.model.Date_Time;
 import com.niit.collaboration.model.Forum;
 
 	   
@@ -24,9 +27,16 @@ import com.niit.collaboration.model.Forum;
 			@Autowired
 			ForumDAO forumDAO;
 			
+			@Autowired
+			HttpSession httpSession;
+			
 			@PostMapping("/addForum/")
 			public ResponseEntity<Forum> createForum(@RequestBody Forum forum)
 			{
+				forum.setUserID(httpSession.getAttribute("loggedInUserID").toString());
+				Date_Time dt = new Date_Time();
+				forum.setDateTime(dt.getDateTime());
+				forum.setStatus("P");
 				forumDAO.add(forum);
 				forum.setErrorCode("200");
 				forum.setErrorMsg("Success....");
@@ -64,7 +74,7 @@ import com.niit.collaboration.model.Forum;
 
 				return new ResponseEntity< List<Forum>>(forums,HttpStatus.OK);
 			}
-		/*	@GetMapping("/updateForum")
+			@PostMapping("/updateForum")
 			public ResponseEntity<Forum> editForum(@RequestBody Forum forum)
 			{
 				forumDAO.update(forum);
@@ -72,5 +82,5 @@ import com.niit.collaboration.model.Forum;
 				forum.setErrorMsg("Success....");
 				
 				return new ResponseEntity<Forum> (forum,HttpStatus.OK) ;
-			}*/
+			}
 }

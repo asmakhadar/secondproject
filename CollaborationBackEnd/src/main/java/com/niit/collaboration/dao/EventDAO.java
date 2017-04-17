@@ -13,5 +13,5 @@ public interface EventDAO {
 		
 		public List<Event> Eventlist();
 
-	/*	public void update(Event event);*/
+		public void update(Event event);
 }

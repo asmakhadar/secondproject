@@ -16,6 +16,6 @@ public interface JobDAO
 		
 		public List<Job> Joblist();
 		
-      /*public void update(Job job);*/
+      public void update(Job job);
 
 }

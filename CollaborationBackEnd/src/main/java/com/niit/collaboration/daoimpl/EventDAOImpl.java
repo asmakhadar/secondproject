@@ -11,6 +11,7 @@ package com.niit.collaboration.daoimpl;
 	import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.collaboration.dao.EventDAO;
+import com.niit.collaboration.model.Blog;
 import com.niit.collaboration.model.Event;
 
     
@@ -69,11 +70,11 @@ import com.niit.collaboration.model.Event;
 			 return query.list();
 		}
 
-		/*public void update(Event event) {
-			sessionFactory.getCurrentSession().update(event);
-			return;
-			
-		}*/
+		@Transactional
+		public void update(Event event) 
+		{
+			sessionFactory.getCurrentSession().update(event);			
+		}
 
 
 }

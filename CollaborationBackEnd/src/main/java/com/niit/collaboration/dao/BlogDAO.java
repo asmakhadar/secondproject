@@ -4,8 +4,11 @@ import java.util.List;
 
 import com.niit.collaboration.model.Blog;
 
+
 public interface BlogDAO
 {
+
+	
     public boolean add(Blog blog);
 	
 	public boolean delete(Blog blog);
@@ -14,7 +17,7 @@ public interface BlogDAO
 	
 	public List<Blog> Bloglist();
 
-/*	public void update(Blog blog);*/
+	public void update(Blog blog);
 
 
 }

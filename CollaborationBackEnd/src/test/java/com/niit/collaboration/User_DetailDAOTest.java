@@ -19,11 +19,9 @@ public static void main(String[] args)
 	
 user_Detail.setId("002");
 user_Detail.setName("sanu");
-user_Detail.setAddress("vijaynagar");
-user_Detail.setMobile_number("8979955653");
 user_Detail.setEmail("sanu@gmail.com");
 user_Detail.setPassword("sanu");
-user_Detail.setReason("dgcyd");
+user_Detail.setGender("female");
 user_Detail.setRole("user");
 user_Detail.setStatus("stefd");
 user_Detail.setIs_online("no");
@@ -33,11 +31,9 @@ user_DetailDAO.add(user_Detail);
 
 user_Detail.setId("002");
 user_Detail.setName("sanu");
-user_Detail.setAddress("vijaynagar");
-user_Detail.setMobile_number("89799556");
 user_Detail.setEmail("sanu@gmail.com");
 user_Detail.setPassword("sanu");
-user_Detail.setReason("dgcyd");
+user_Detail.setGender("female");
 user_Detail.setRole("user");
 user_Detail.setStatus("stefd");
 user_Detail.setIs_online("no");

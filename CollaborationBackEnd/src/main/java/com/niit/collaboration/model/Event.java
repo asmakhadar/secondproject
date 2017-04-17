@@ -27,12 +27,23 @@ import org.springframework.stereotype.Component;
 	
 	private String date_time;
 
+	private String venue;
+	
 	public long getId() {
 		return id;
 	}
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	
+	public String getVenue() {
+		return venue;
+	}
+
+	public void setVenue(String venue) {
+		this.venue = venue;
 	}
 
 	public String getName() {

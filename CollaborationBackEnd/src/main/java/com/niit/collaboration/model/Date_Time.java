@@ -8,7 +8,7 @@ public class Date_Time {
 
 	public String getDateTime()
 	{
-		DateFormat df= new SimpleDateFormat("dd-MM-yyyy");
+		DateFormat df= new SimpleDateFormat("dd-MM-yyyy @ HH:mm");
 		Date dateobj=new Date();
 		String datetime=df.format(dateobj).toString();
 		System.out.println("Date-"+datetime);

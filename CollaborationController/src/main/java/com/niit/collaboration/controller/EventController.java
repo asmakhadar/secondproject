@@ -3,7 +3,9 @@ package com.niit.collaboration.controller;
 
 	import java.util.List;
 
-	import org.springframework.beans.factory.annotation.Autowired;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 	    import org.springframework.http.HttpStatus;
 		import org.springframework.http.ResponseEntity;
 		import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +15,7 @@ package com.niit.collaboration.controller;
 		import org.springframework.web.bind.annotation.RestController;
 
 import com.niit.collaboration.dao.EventDAO;
+import com.niit.collaboration.model.Date_Time;
 import com.niit.collaboration.model.Event;
 
 	    
@@ -28,9 +31,14 @@ import com.niit.collaboration.model.Event;
 			@Autowired
 			EventDAO eventDAO;
 			
+			@Autowired
+			HttpSession httpSession;
+			
 			@PostMapping("/addEvent/")
 			public ResponseEntity<Event> createEvent(@RequestBody Event event)
 			{
+				/*Date_Time dt = new Date_Time();
+				event.setDate_time(dt.getDateTime());*/
 				eventDAO.add(event);
 				event.setErrorCode("200");
 				event.setErrorMsg("Success....");
@@ -68,7 +76,7 @@ import com.niit.collaboration.model.Event;
 
 				return new ResponseEntity< List<Event>>(events,HttpStatus.OK);
 			}
-		/*	@GetMapping("/updateEvent")
+			@PostMapping("/updateEvent")
 			public ResponseEntity<Event> editEvent(@RequestBody Event event)
 			{
 				eventDAO.update(event);
@@ -76,7 +84,7 @@ import com.niit.collaboration.model.Event;
 				event.setErrorMsg("Success....");
 				
 				return new ResponseEntity<Event> (event,HttpStatus.OK) ;
-			}*/
+			}
 		}
 
 

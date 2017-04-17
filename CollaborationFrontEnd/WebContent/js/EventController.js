@@ -11,7 +11,7 @@ app.controller('EventController', function($scope,$location,EventService){
 	   $scope.registerEvent=function()
 	   {
 		   console.log('entering function save in event controller')
-		   EventService.registerEvent($scope.event)
+		   EventService.addEvent($scope.event)
 		   .then(
 			function(response)	{
 				console.log('adding success')

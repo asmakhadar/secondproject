@@ -3,7 +3,7 @@ app.factory('EventService' ,function($http,$q){
 	var BASE_URL = "http://localhost:8081/CollaborationController/"
 		
 		return{
-		registerEvent: function(event){
+		addEvent: function(event){
 			return $http.post(BASE_URL+'addEvent/',event)
 			.then(function(response){
 				return response.data;
@@ -23,9 +23,6 @@ app.factory('EventService' ,function($http,$q){
 			console.log('entering getAllEvent in event service')
 		return $http.get(BASE_URL +"getAllEvent")
 	}
-		
-		
-		
 		
 		
 	}

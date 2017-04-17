@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.collaboration.dao.JobDAO;
+import com.niit.collaboration.model.Blog;
 import com.niit.collaboration.model.Job;
 
 
@@ -68,12 +69,11 @@ public class JobDAOImpl implements JobDAO
 			 return query.list();
 		}
 
-	/*	@Transactional
-		public void update(Job job) {
-			sessionFactory.getCurrentSession().update(job);
-			return;
-			
-		}*/
+		@Transactional
+		public void update(Job job) 
+		{
+			sessionFactory.getCurrentSession().update(job);			
+		}
 
 
 }
